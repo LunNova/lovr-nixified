@@ -1,3 +1,11 @@
+## Nix/NixOS stuff
+
+Main binary is .#lovr at bin/lovr so nix run .#lovr should work.
+
+You need to run this with an OpenXR runtime. Either run it with `steam-run` and have SteamVR set up, or run it with monado.
+
+Example launching with monado, needs the service already running: `nix develop github:lunnova/openxr-nix-flake#monado-basic -c nix run .#lovr`
+
 # LÖVR
 
 <a href="https://lovr.org"><img align="right" src="https://lovr.org/static/img/logo.svg" width="180"/></a>

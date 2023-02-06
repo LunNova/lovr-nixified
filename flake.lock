@@ -1,0 +1,97 @@
+{
+  "nodes": {
+    "glslang": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1659765258,
+        "narHash": "sha256-0WWzj5XCOz3YR/RTlTz2MsmH5kXKUPlN32ULcZNfkjg=",
+        "owner": "bjornbytes",
+        "repo": "glslang",
+        "rev": "de4daf201a2acd83ad523b4c6148e4d8e5b7dab4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "bjornbytes",
+        "repo": "glslang",
+        "type": "github"
+      }
+    },
+    "msdfgen": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1671487067,
+        "narHash": "sha256-Cdb9wtD9cRyC7fbvrc+K4Lb/VN1A2LJhSzZ1g/XKbF0=",
+        "owner": "bjornbytes",
+        "repo": "msdfgen",
+        "rev": "6f7eda06adc23bc14ca2e14190d69ae1d00f1740",
+        "type": "github"
+      },
+      "original": {
+        "owner": "bjornbytes",
+        "ref": "lovr",
+        "repo": "msdfgen",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1675600654,
+        "narHash": "sha256-ipsDTkzRq1CAl2g5tYd7ugjVMSKF6KLh9F+5Kso0lT0=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "cff83d5032a21aad4f69bf284e95b5f564f4a54e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-22.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "ode": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1648237013,
+        "narHash": "sha256-LUauCvOenfZKDXcI7iP/ewPi2geGIXoWqJsZ88PtNO0=",
+        "owner": "bjornbytes",
+        "repo": "ode",
+        "rev": "dd3e3fc1f16a6746c0bfaa343899cb3a418b0cab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "bjornbytes",
+        "ref": "lovr",
+        "repo": "ode",
+        "type": "github"
+      }
+    },
+    "openxr": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1675275013,
+        "narHash": "sha256-Uqp32cSPaDoghk6iudrdYTRBEWfz0ZyA+JRLnWjl+CE=",
+        "owner": "khronosgroup",
+        "repo": "openxr-sdk",
+        "rev": "a70dfcd5a17b18667e641f2392c21f7c1ed10fe1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "khronosgroup",
+        "repo": "openxr-sdk",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "glslang": "glslang",
+        "msdfgen": "msdfgen",
+        "nixpkgs": "nixpkgs",
+        "ode": "ode",
+        "openxr": "openxr"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

@@ -194,8 +194,8 @@ if(LOVR_USE_GLSLANG)
     "${CMAKE_CURRENT_SOURCE_DIR}/deps/glslang/StandAlone/ResourceLimits.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/deps/glslang/StandAlone/resource_limits_c.cpp"
     )
-  target_link_libraries(lovr_glslang PUBLIC glslang)
-  set(LOVR_GLSLANG lovr_glslang SPIRV)
+  target_link_libraries(lovr_glslang PUBLIC glslang SPIRV)
+  set(LOVR_GLSLANG lovr_glslang) # SPIRV
 endif()
 
 # Vulkan
@@ -301,7 +301,6 @@ endif()
 
 # Plugins
 set(LOVR 1)
-link_libraries(${LOVR_LUA})
 if(NOT DEFINED LOVR_PLUGINS)
   file(GLOB LOVR_PLUGINS ${CMAKE_SOURCE_DIR}/plugins/*)
 endif()
@@ -360,6 +359,7 @@ target_include_directories(lovr PRIVATE
 )
 
 target_link_libraries(lovr
+  -lm
   ${LOVR_GLFW}
   ${LOVR_LUA}
   ${LOVR_MSDF}
@@ -842,8 +842,16 @@ elseif(ANDROID)
   endif()
 elseif(UNIX)
   target_sources(lovr PRIVATE src/core/os_linux.c)
-  set_target_properties(lovr PROPERTIES BUILD_WITH_INSTALL_RPATH TRUE)
   install(TARGETS lovr DESTINATION bin/)
-  install(TARGETS lib_msdfgen ode DESTINATION lib/)
   target_compile_definitions(lovr PRIVATE -DLOVR_GL)
+  install(TARGETS msdfgen ode DESTINATION lib/)
+  if(LOVR_USE_LINUX_EGL)
+    target_compile_definitions(lovr PRIVATE LOVR_LINUX_EGL)
+  else()
+    target_compile_definitions(lovr PRIVATE LOVR_LINUX_X11)
+  endif()
+  set_target_properties(lovr PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+  )
 endif()
+
